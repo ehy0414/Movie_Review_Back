@@ -9,9 +9,9 @@ import com.movie_review.movie_review_back.mrv.domain.MrvRequestDTO;
 @Service
 public class MrvService {
     @Autowired
-    private MrvMapper bbsMapper;
+    private MrvMapper mrvMapper;
 
     public void save(MrvRequestDTO params) {
-        bbsMapper.saveRow(params);
+        mrvMapper.saveRow(params);
     }
 }

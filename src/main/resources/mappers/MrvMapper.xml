@@ -5,8 +5,51 @@
     <!-- saveRow --> 
 
     <insert id="saveRow"
-            parameterType="mrvRequestDTO">
+            parameterType="com.movie_review.movie_review_back.mrv.domain.MrvRequestDTO">
         INSERT INTO TB_MOVIE (TITLE, CONTENT)
         VALUES ( #{title}, #{content} )
     </insert>
-</mapper>
+
+    <select id="findAllRow"
+            parameterType="com.movie_review.movie_review_back.mrv.domain.MrvResponseDTO">
+        SELECT ID, TITLE, CONTENT
+        FROM TB_MOVIE
+    </select>
+
+    <!-- findRow --> 
+
+    <select id="findRow"
+            parameterType="java.util.HashMap"
+            resultType="com.movie_review.movie_review_back.mrv.domain.MrvResponseDTO">
+        SELECT ID, TITLE, CONTENT
+        FROM TB_MOVIE
+        WHERE ID = #{id}
+    </select>
+    
+    <!-- findByIdComment --> 
+
+    <select id="findByIdComment"
+            parameterType="java.util.HashMap"
+            resultType="com.movie_review.movie_review_back.mrv.domain.comment.CommentResponseDTO">
+        SELECT ID, CONTENT, MOVIEID
+        FROM TB_COMMENT2
+        WHERE MOVIEID = #{ id }
+    </select>
+    
+    <!-- commentSaveRow --> 
+
+    <insert id="commentSaveRow"
+            parameterType="com.movie_review.movie_review_back.mrv.domain.comment.CommentRequestDTO">
+        INSERT INTO TB_COMMENT2 (CONTENT, MOVIEID)
+        VALUES ( #{content}, #{movieid} )
+    </insert>
+
+    <!-- deleteRow --> 
+
+    <delete id="deleteRow"
+            parameterType="java.util.HashMap">
+        DELETE FROM TB_MOVIE
+        WHERE ID = #{id}
+    </delete>
+    
+    </mapper>

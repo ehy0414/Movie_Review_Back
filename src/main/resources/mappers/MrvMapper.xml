@@ -5,13 +5,13 @@
     <!-- saveRow --> 
 
     <insert id="saveRow"
-            parameterType="com.movie_review.movie_review_back.mrv.domain.MrvRequestDTO">
+            parameterType="mrvRequestDTO">
         INSERT INTO TB_MOVIE (TITLE, CONTENT)
         VALUES ( #{title}, #{content} )
     </insert>
 
     <select id="findAllRow"
-            parameterType="com.movie_review.movie_review_back.mrv.domain.MrvResponseDTO">
+            parameterType="mrvResponseDTO">
         SELECT ID, TITLE, CONTENT
         FROM TB_MOVIE
     </select>
@@ -20,7 +20,7 @@
 
     <select id="findRow"
             parameterType="java.util.HashMap"
-            resultType="com.movie_review.movie_review_back.mrv.domain.MrvResponseDTO">
+            resultType="mrvResponseDTO">
         SELECT ID, TITLE, CONTENT
         FROM TB_MOVIE
         WHERE ID = #{id}
@@ -51,5 +51,13 @@
         DELETE FROM TB_MOVIE
         WHERE ID = #{id}
     </delete>
-    
+
+    <!-- deleteCommentRow --> 
+
+    <delete id="deleteCommentRow"
+            parameterType="java.util.HashMap">
+        DELETE FROM TB_COMMENT2
+        WHERE ID = #{id}
+    </delete>
+
     </mapper>

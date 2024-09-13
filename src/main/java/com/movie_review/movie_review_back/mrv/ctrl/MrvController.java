@@ -88,4 +88,14 @@ public class MrvController {
         mrvService.deleteMovie(map);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @DeleteMapping("/comment/delete/{id}")
+    public ResponseEntity<Void> deleteComment(@PathVariable(name = "id") Integer id) {
+        System.out.println("debug >>> id param value " + id);
+        Map<String, Integer> map = new HashMap<>();
+        map.put("id", id);
+
+        mrvService.deleteComment(map);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

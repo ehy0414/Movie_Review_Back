@@ -24,4 +24,6 @@ public interface MrvMapper {
     public void commentSaveRow(CommentRequestDTO params);
 
     public void deleteRow(Map<String, Integer> map);
+
+    public void deleteCommentRow(Map<String, Integer> map);
 }

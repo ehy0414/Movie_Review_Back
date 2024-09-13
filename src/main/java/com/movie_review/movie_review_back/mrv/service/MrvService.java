@@ -46,4 +46,8 @@ public class MrvService {
     public void deleteMovie(Map<String, Integer> map) {
         mrvMapper.deleteRow(map);
     }
+
+    public void deleteComment(Map<String, Integer> map) {
+        mrvMapper.deleteCommentRow(map);
+    }
 }
